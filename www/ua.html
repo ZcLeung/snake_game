@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="iconfont.css">
+    <script src="https://cdn.bootcss.com/clipboard.js/1.7.1/clipboard.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <title>UA工具</title>
+</head>
+<body>
+  <!-- 功能 -->
+  <div class="form-group">
+    <textarea rows="3" cols="20" id="ua_textbox"></textarea>
+  </div>
+  <div class="form-group">
+  <button type="button" id="copy_ua" class="btn btn-default">复制当前UA到剪贴板</button>
+    <button type="button" id="alert_ua" class="btn btn-primary">alert当前UA</button>
+  </div>
+</body>
+<script type="text/javascript">
+  window.onload = function(){
+    var copy_ua = document.getElementById("copy_ua");
+    var alert_ua = document.getElementById("alert_ua");
+    var ua_textbox = document.getElementById("ua_textbox");
+    var ua = navigator.userAgent;
+    ua_textbox.innerHTML = ua;
+
+    alert_ua.onclick = function(){
+      alert(ua);
+    }
+    copy_ua.onclick = function(){
+      ua_textbox.select();
+      document.execCommand("Copy");
+      alert("已复制好，可贴粘。");
+    }
+  };
+</script>
+</html>
