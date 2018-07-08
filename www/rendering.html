@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body id="body">
+	<textarea name="raw_html" id="raw_html" cols="200" rows="40"></textarea>
+	<button id="render_btn">渲染</button>
+	<script>
+		window.onload = function(){
+			var render_btn = document.querySelector("#render_btn");
+			var html = document.querySelector("html");
+			render_btn.onclick = function(){
+				var raw_html = document.querySelector("#raw_html").value;
+				raw_html= raw_html.replace("gb2312", 'utf-8');
+				raw_html= raw_html.replace("GB2312", 'utf-8');
+				html.innerHTML = raw_html;
+			};
+			
+		};
+	</script>
+</body>
+</html>
